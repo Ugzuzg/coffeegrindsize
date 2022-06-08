@@ -1023,9 +1023,9 @@ class coffeegrindsize_GUI:
 			self.scale = 1
 			
 			#Deactivate zoom buttons
-			self.zoom_in_button.config(state=DISABLED)
-			self.zoom_out_button.config(state=DISABLED)
-			self.reset_zoom_button.config(state=DISABLED)
+			self.simple_zoom_in_button.config(state=DISABLED)
+			self.simple_zoom_out_button.config(state=DISABLED)
+			self.simple_reset_zoom_button.config(state=DISABLED)
 			
 		#If we are moving out from histogram display
 		else:
@@ -1034,9 +1034,9 @@ class coffeegrindsize_GUI:
 				self.scale = self.original_scale
 				
 				#Reactivate zoom buttons
-				self.zoom_in_button.config(state=NORMAL)
-				self.zoom_out_button.config(state=NORMAL)
-				self.reset_zoom_button.config(state=NORMAL)
+				self.simple_zoom_in_button.config(state=NORMAL)
+				self.simple_zoom_out_button.config(state=NORMAL)
+				self.simple_reset_zoom_button.config(state=NORMAL)
 		
 		#Redraw the selected image
 		self.redraw(x=self.last_image_x, y=self.last_image_y)
@@ -1764,7 +1764,7 @@ class coffeegrindsize_GUI:
 		self.original_scale *= 2
 		
 		#Resize image
-		self.img_source = self.img_source.resize((int(float(self.img.size[0])/2),int(float(self.img.size[1])/2)), Image.ANTIALIAS)
+		self.img_source = self.img_source.resize((int(float(self.img.size[0])/2),int(float(self.img.size[1])/2)), Image.Resampling.LANCZOS)
 		self.img = self.img_source
 		
 		#Redraw the image
@@ -2969,7 +2969,7 @@ class coffeegrindsize_GUI:
 		fig.canvas.draw()
 		
 		#Tranform the figure in a numpy array
-		figdata = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep='')
+		figdata = np.frombuffer(fig.canvas.tostring_rgb(), dtype=np.uint8)
 		figdata = figdata.reshape(fig.canvas.get_width_height()[::-1] + (3,))
 		
 		#Read the shape of the numpy array
