@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "coffeegrindsize"
+version = "1.0.0"
+description = "Detects the individual coffee grounds in a white-background picture to determine particle size distribution"
+authors = ["Jonathan Gagné", "Jarasłaŭ Viktorčyk <ugzuzg@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Pillow = "^9.1.1"
+numpy = "^1.22.4"
+pandas = "^1.4.2"
+matplotlib = "^3.5.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
