@@ -6,13 +6,16 @@ authors = ["Jonathan Gagné", "Jarasłaŭ Viktorčyk <ugzuzg@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.7,<3.11"
 Pillow = "^9.1.1"
 numpy = "^1.22.4"
 pandas = "^1.4.2"
 matplotlib = "^3.5.2"
 
 [tool.poetry.dev-dependencies]
+dmgbuild = "^1.5.2"
+biplist = "^1.0.3"
+pyinstaller = "^5.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

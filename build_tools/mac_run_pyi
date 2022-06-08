@@ -2,8 +2,8 @@
 #
 pyinstaller --windowed \
             --noconfirm \
-            --icon="$GITHUB/coffeegrindsize/build_tools/coffeegrindsize.icns" \
+            --icon="build_tools/coffeegrindsize.icns" \
             --name "coffeegrindsize" \
             --hidden-import cmath \
-            $GITHUB/coffeegrindsize/coffeegrindsize.py
-$GITHUB/coffeegrindsize/build_tools/fix_info_plist.py ./dist/coffeegrindsize.app/Contents/Info.plist
+            coffeegrindsize.py
+build_tools/fix_info_plist.py $(poetry version --short) ./dist/coffeegrindsize.app/Contents/Info.plist
